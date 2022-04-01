@@ -26,10 +26,10 @@ export default class SignIn extends BasePage {
 
     fillGeneratedEmailCreateForm(valid){
         if (valid) {
-            email = this.mockEmail.generateEmail()    
+           var email = this.mockEmail.generateEmail()    
         }
         else{
-            email = 'dfvbjkdf1234!@#$sadf!$#@ '
+            var email = 'dfvbjkdf1234!@#$sadf!$#@ '
         }
         this.fillEmailCreateForm(email)        
     }

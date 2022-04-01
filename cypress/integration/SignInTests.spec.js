@@ -1,4 +1,4 @@
-import HomePage from "../../page_objects/Home.page";
+
 import SignIn from "../../page_objects/SignIn.Page";
 
 const signIn = new SignIn()
@@ -9,6 +9,10 @@ describe('SignIn Functionality Tests', () => {
     })
     it('Test that enters empty string as email and asserts error displayed', () => {
         signIn.fillEmailCreateForm('')
+        signIn.errorDisplayedAssert()
+    })
+    it('Test that enters invalid format of email and asserts error displayed', () => {
+        signIn.fillGeneratedEmailCreateForm(false)
         signIn.errorDisplayedAssert()
     })
 })

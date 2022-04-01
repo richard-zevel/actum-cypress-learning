@@ -7,9 +7,11 @@ export default class BasePage {
     userNameLink = 'a.account'
     contactLink = '#contact-link > a'
 
+    mockEmail = require('email-generator')
+
     //Page Object Methods
     visit() {
-        return cy.visit('http://automationpractice.com/index.php')
+        return cy.visit('/')
     }
 
     searchFor(term) {

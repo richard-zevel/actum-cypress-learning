@@ -20,7 +20,7 @@ export default class SignIn extends BasePage {
         cy.get(this.submitCreateBtn).click()
     }
 
-    errorDisplayedAssert(){
+    isErrorDisplayed(){
         return cy.get(this.formErrorBox).should('be.visible')
     }
 

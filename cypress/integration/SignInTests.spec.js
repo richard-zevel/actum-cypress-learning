@@ -9,10 +9,10 @@ describe('SignIn Functionality Tests', () => {
     })
     it('Test that enters empty string as email and asserts error displayed', () => {
         signIn.fillEmailCreateForm('')
-        signIn.errorDisplayedAssert()
+        signIn.isErrorDisplayed()
     })
     it('Test that enters invalid format of email and asserts error displayed', () => {
         signIn.fillGeneratedEmailCreateForm(false)
-        signIn.errorDisplayedAssert()
+        signIn.isErrorDisplayed()
     })
 })

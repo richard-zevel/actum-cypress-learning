@@ -15,6 +15,30 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
+  install:
+    runs-on: ubuntu-latest
+    container: 
+      image: cypress/browsers:node16.5.0-chrome94-ff93
+      options: --user 1001
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Save build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v3
+        with:
+          # Disable running of tests within install job
+          runTests: false
+          build: yarn build
+
   cypress-run:
     runs-on: ubuntu-latest
     container: 
@@ -26,8 +50,16 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       #- name: Cache stuff
-      #  run: chown -R 1001:1001 /github/home/.cache && echo "pwn dat cache"        
+      #  run: chown -R 1001:1001 /github/home/.cache && echo "pwn dat cache"
+      
+      - name: Download the build folders
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+      
       - name: Cypress run
         uses: cypress-io/github-action@v3
         with:
           browser: firefox
+          build: yarn build

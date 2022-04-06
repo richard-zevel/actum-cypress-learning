@@ -5,6 +5,11 @@
   "repository": "https://github.com/h0verlord/actum-cypress-learning.git",
   "author": "richard.zevel",
   "license": "MIT",
+  "scripts": {
+    "cy:run": "cypress run",
+    "cy:search": "cypress run --spec cypress/integration/SearchTests.spec.js",
+    "cy:signin": "cypress run --spec cypress/integration/SignInTests.spec.js"
+  },
   "dependencies": {
     "cypress": "^9.5.3"
   },

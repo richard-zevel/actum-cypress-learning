@@ -1,4 +1,8 @@
 {
     "projectId": "cxe8r9",
-    "baseUrl": "http://automationpractice.com/index.php"
+    "baseUrl": "http://automationpractice.com/index.php",
+    "retries": {
+        "runMode" : 3,
+        "openmode": 0
+    }
 }
